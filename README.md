@@ -1,7 +1,7 @@
 # GildedRose-Refactoring-Kata
 Starting code for the GildedRose Refactoring Kata in C#. Taken from https://github.com/emilybache/GildedRose-Refactoring-Kata
 
-# Gilded Rose Requirements Specification
+# Requirements Specification
 
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a
 prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods.
@@ -38,3 +38,28 @@ for you).
 
 Just for clarification, an item can never have its `Quality` increase above `50`, however __"Sulfuras"__ is a
 legendary item and as such its `Quality` is `80` and it never alters.
+
+# Starting position in C# xUnit
+
+## Build the project
+
+Use your normal build tools to build the projects in Debug mode.
+For example, you can use the `dotnet` command line tool:
+
+``` cmd
+dotnet build GildedRose.sln -c Debug
+```
+
+## Run the Gilded Rose Command-Line program
+
+For e.g. 10 days:
+
+``` cmd
+GildedRose/bin/Debug/net8.0/GildedRose 10
+```
+
+## Run all the unit tests
+
+``` cmd
+dotnet test
+```
