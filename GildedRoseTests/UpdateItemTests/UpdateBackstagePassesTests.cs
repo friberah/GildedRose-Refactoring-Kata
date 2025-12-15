@@ -85,4 +85,15 @@ public class UpdateBackstagePassesTests
 
         Assert.Equal(0, items[0].Quality);
     }
+
+    [Fact]
+    public void Backstage_Sellin_DecreasesBy1()
+    {
+        IList<Item> items = [new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 1, Quality = 10 }];
+
+        var app = new GildedRose(items);
+        app.UpdateQuality();
+
+        Assert.Equal(0, items[0].SellIn);
+    }
 }

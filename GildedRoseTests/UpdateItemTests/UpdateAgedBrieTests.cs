@@ -7,7 +7,7 @@ namespace GildedRoseTests.UpdateAgedBrieTests;
 public class UpdateAgedBrieTests
 {
     [Fact]
-    public void AgedBrie_IncreasesInQuality()
+    public void AgedBrie_IncreasesInQualityUpTo50()
     {
         IList<Item> Items = new List<Item>
         {

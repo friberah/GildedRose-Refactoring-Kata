@@ -33,7 +33,6 @@ public class UpdateNormalItemTests
         Assert.Equal(8, Items[0].Quality);
     }
     
-    // The Quality of an item is never negative
     [Theory]
     [InlineData(1, 0)]
     [InlineData(0, 1)]
