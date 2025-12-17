@@ -23,7 +23,8 @@ public class GildedRose
     }
     private static void UpdateSulfuras(Item item)
     {
-        return;
+        var updater = new SulfurasUpdater();
+        updater.UpdateQuality(item);
     }
 
     private static void UpdateAgedBrie(Item item)

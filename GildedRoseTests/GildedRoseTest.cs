@@ -158,7 +158,7 @@ public class GildedRoseTest
     }
     
     // Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
-    [Fact(Skip = "Pending to add this logic after refactoring")]
+    [Fact]
     public void UpdateQuality_SulfurasHasAFixedQualityOf80()
     {
         var items = new List<Item> { new() { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 10 } };
