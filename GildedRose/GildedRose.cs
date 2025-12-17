@@ -15,12 +15,9 @@ public class GildedRose
     {
         foreach (var item in _items)
         {
-            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert" && item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
             {
-                if (item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
-                {
                     item.Quality = item.Quality - 1;
-                }
             }
             if ((item.Name == "Aged Brie" || item.Name == "Backstage passes to a TAFKAL80ETC concert") && item.Quality < 50)
             {
