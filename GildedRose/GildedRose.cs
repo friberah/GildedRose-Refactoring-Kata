@@ -53,7 +53,7 @@ public class GildedRose
                             item.Quality = item.Quality - 1;
                         }
                     }
-                    else
+                    if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
                         item.Quality = item.Quality - item.Quality;
                     }
