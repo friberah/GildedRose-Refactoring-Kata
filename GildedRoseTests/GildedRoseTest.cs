@@ -104,4 +104,32 @@ public class GildedRoseTest
 
         items[0].SellIn = 10;
     }
+    
+    // "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
+    // Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
+    // Quality drops to 0 after the concert
+    [Theory]
+    [InlineData(12, 10, 11)]
+    [InlineData(11, 10, 11)]
+    [InlineData(10, 10, 12)]
+    [InlineData(9, 10, 12)]
+    [InlineData(8, 10, 12)]
+    [InlineData(7, 10, 12)]
+    [InlineData(6, 10, 12)]
+    [InlineData(5, 10, 13)]
+    [InlineData(4, 10, 13)]
+    [InlineData(3, 10, 13)]
+    [InlineData(2, 10, 13)]
+    [InlineData(1, 10, 13)]
+    [InlineData(0, 10, 13)]
+    [InlineData(-1, 10, 0)]
+    public void UpdateQuality_BackstagePassesUpdatesQualityBasedOnSellIn(int sellIn, int quality, int expectedQuality)
+    {
+        var items = new List<Item> { new() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = quality } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Quality = expectedQuality;
+    }
 }
