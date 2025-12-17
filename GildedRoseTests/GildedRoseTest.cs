@@ -134,7 +134,7 @@ public class GildedRoseTest
     }
     
     // "Conjured" items degrade in Quality twice as fast as normal items
-    [Fact(Skip = "Pending to add this logic after refactoring")]
+    [Fact]
     public void UpdateQuality_ConjuredDecreasesQualityBy2()
     {
         var items = new List<Item> { new() { Name = "Conjured", SellIn = 10, Quality = 10 } };
@@ -146,7 +146,7 @@ public class GildedRoseTest
     }
     
     // "Conjured" items degrade in Quality twice as fast as normal items
-    [Fact(Skip = "Pending to add this logic after refactoring")]
+    [Fact]
     public void UpdateQuality_ConjuredDecreasesSellInBy1()
     {
         var items = new List<Item> { new() { Name = "Conjured", SellIn = 10, Quality = 10 } };
