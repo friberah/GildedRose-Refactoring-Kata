@@ -22,7 +22,7 @@ public class GildedRose
                     item.Quality = item.Quality - 1;
                 }
             }
-            else if (item.Quality < 50)
+            if ((item.Name == "Aged Brie" || item.Name == "Backstage passes to a TAFKAL80ETC concert") && item.Quality < 50)
             {
                 item.Quality = item.Quality + 1;
 
