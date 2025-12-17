@@ -59,7 +59,7 @@ public class GildedRose
                             _items[i].Quality = _items[i].Quality - 1;
                         }
                     }
-                    else
+                    if (_items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
                         _items[i].Quality = _items[i].Quality - _items[i].Quality;
                     }
