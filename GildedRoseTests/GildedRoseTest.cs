@@ -10,7 +10,7 @@ public class GildedRoseTest
     [Fact]
     public void UpdateQuality_LowersSellInForEveryItem()
     {
-        var items = new List<Item> { new Item { Name = "foo", SellIn = 10, Quality = 10 } };
+        var items = new List<Item> { new() { Name = "foo", SellIn = 10, Quality = 10 } };
         var app = new GildedRose(items);
         
         app.UpdateQuality();
@@ -22,7 +22,7 @@ public class GildedRoseTest
     [Fact]
     public void UpdateQuality_LowersQualityForEveryItem()
     {
-        var items = new List<Item> { new Item { Name = "foo", SellIn = 10, Quality = 10 } };
+        var items = new List<Item> { new() { Name = "foo", SellIn = 10, Quality = 10 } };
         var app = new GildedRose(items);
         
         app.UpdateQuality();
@@ -37,11 +37,23 @@ public class GildedRoseTest
     [InlineData(1)]
     public void UpdateQuality_ReducedQualityByTwoWhenSellInIsLessOrEqualToZero(int sellIn)
     {
-        var items = new List<Item> { new Item { Name = "foo", SellIn = sellIn, Quality = 10 } };
+        var items = new List<Item> { new() { Name = "foo", SellIn = sellIn, Quality = 10 } };
         var app = new GildedRose(items);
         
         app.UpdateQuality();
 
         items[0].Quality = 8;
+    }
+    
+    // The Quality of an item is never negative
+    [Fact]
+    public void UpdateQuality_NeverSetsNegativeQuality()
+    {
+        var items = new List<Item> { new() { Name = "foo", SellIn = 10, Quality = 0 } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Quality = 0;
     }
 }
