@@ -56,7 +56,7 @@ public class GildedRose
                         item.Quality = item.Quality - item.Quality;
                     }
                 }
-                else if (item.Quality < 50)
+                if (item.Name == "Aged Brie" && item.Quality < 50)
                 {
                     item.Quality = item.Quality + 1;
                 }
