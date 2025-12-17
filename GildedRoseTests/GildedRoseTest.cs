@@ -56,4 +56,16 @@ public class GildedRoseTest
 
         items[0].Quality = 0;
     }
+    
+    // "Aged Brie" actually increases in Quality the older it gets
+    [Fact]
+    public void UpdateQuality_AgedBrie_IncreasesQualityByOne()
+    {
+        var items = new List<Item> { new() { Name = "Aged Brie", SellIn = 10, Quality = 10 } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Quality = 11;
+    }
 }
