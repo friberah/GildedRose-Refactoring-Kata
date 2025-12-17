@@ -83,7 +83,7 @@ public class GildedRoseTest
     
     // "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
     [Fact]
-    public void UpdateQuality_SulfurasNeverDecreasesinQuality()
+    public void UpdateQuality_SulfurasNeverDecreasesQuality()
     {
         var items = new List<Item> { new() { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 10 } };
         var app = new GildedRose(items);
@@ -91,5 +91,17 @@ public class GildedRoseTest
         app.UpdateQuality();
 
         items[0].Quality = 10;
+    }
+    
+    // "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
+    [Fact]
+    public void UpdateQuality_SulfurasNeverDecreasesSellIn()
+    {
+        var items = new List<Item> { new() { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 10 } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].SellIn = 10;
     }
 }
