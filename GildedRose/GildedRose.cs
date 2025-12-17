@@ -15,23 +15,38 @@ public class GildedRose
     {
         foreach (var item in _items)
         {
-            if (item.Name == "Sulfuras, Hand of Ragnaros") continue;
-            
-            if (item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.Quality < 50) item.Quality = item.Quality + 1;
-            if (item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.SellIn < 11 && item.Quality < 50) item.Quality = item.Quality + 1;
-            if (item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.SellIn < 6 && item.Quality < 50) item.Quality = item.Quality + 1;
-            if (item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.SellIn <= 0) item.Quality = item.Quality - item.Quality;
-            
-            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert" && item.Quality > 0) item.Quality = item.Quality - 1;
-            item.SellIn = item.SellIn - 1;
-            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert" && item.SellIn < 0 && item.Quality > 0 ) item.Quality = item.Quality - 1;
-            
-            if (item.Name == "Aged Brie" && item.Quality < 50) item.Quality = item.Quality + 1;
-            if (item.Name == "Aged Brie" && item.SellIn < 0 && item.Quality < 50) item.Quality = item.Quality + 1;
-            
-            
-            
-            
+            if (item.Name == "Sulfuras, Hand of Ragnaros") UpdateSulfuras(item);
+            else if (item.Name == "Aged Brie") UpdateAgedBrie(item);
+            else if (item.Name == "Backstage passes to a TAFKAL80ETC concert") UpdateBackstagePasses(item);
+            else UpdateNormalItem(item);
         }
+    }
+    private static void UpdateSulfuras(Item item)
+    {
+        return;
+    }
+
+    private static void UpdateAgedBrie(Item item)
+    {
+        item.SellIn = item.SellIn - 1;
+        if (item.Quality < 50) item.Quality = item.Quality + 1;
+        if (item.SellIn < 0 && item.Quality < 50) item.Quality = item.Quality + 1;
+    }
+
+    private static void UpdateBackstagePasses(Item item)
+    {
+        if (item.Quality < 50) item.Quality = item.Quality + 1;
+        if (item.SellIn < 11 && item.Quality < 50) item.Quality = item.Quality + 1;
+        if (item.SellIn < 6 && item.Quality < 50) item.Quality = item.Quality + 1;
+        if (item.SellIn <= 0) item.Quality = item.Quality - item.Quality;
+        
+        item.SellIn = item.SellIn - 1;
+    }
+    
+    private static void  UpdateNormalItem(Item item)
+    {
+        item.SellIn = item.SellIn - 1;
+        if (item.Quality > 0) item.Quality = item.Quality - 1;
+        if (item.SellIn < 0 && item.Quality > 0 ) item.Quality = item.Quality - 1;
     }
 }
