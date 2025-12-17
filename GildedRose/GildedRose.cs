@@ -4,6 +4,14 @@ namespace GildedRoseKata;
 
 public class GildedRose
 {
+    private static Dictionary<string, IItemUpdater> _updaters = new Dictionary<string, IItemUpdater>()
+    {
+        { "Sulfuras, Hand of Ragnaros", new SulfurasUpdater() },
+        { "Aged Brie", new AgedBrieUpdater() },
+        { "Backstage passes to a TAFKAL80ETC concert", new BackstagePassUpdater() }
+    };
+    private static IItemUpdater _defaultUpdater = new StandardItemUpdater();
+    
     private readonly IList<Item> _items;
 
     public GildedRose(IList<Item> items)
@@ -15,33 +23,8 @@ public class GildedRose
     {
         foreach (var item in _items)
         {
-            if (item.Name == "Sulfuras, Hand of Ragnaros") UpdateSulfuras(item);
-            else if (item.Name == "Aged Brie") UpdateAgedBrie(item);
-            else if (item.Name == "Backstage passes to a TAFKAL80ETC concert") UpdateBackstagePasses(item);
-            else UpdateNormalItem(item);
+            var updater = _updaters.GetValueOrDefault(item.Name, _defaultUpdater);
+            updater.Update(item);
         }
-    }
-    private static void UpdateSulfuras(Item item)
-    {
-        var updater = new SulfurasUpdater();
-        updater.Update(item);
-    }
-
-    private static void UpdateAgedBrie(Item item)
-    {
-        var updater = new AgedBrieUpdater();
-        updater.Update(item);
-    }
-
-    private static void UpdateBackstagePasses(Item item)
-    {
-        var updater = new BackstagePassUpdater();
-        updater.Update(item);
-    }
-    
-    private static void  UpdateNormalItem(Item item)
-    {
-        var updater = new StandardItemUpdater();
-        updater.Update(item);
     }
 }
