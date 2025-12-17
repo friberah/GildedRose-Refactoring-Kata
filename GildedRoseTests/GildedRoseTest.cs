@@ -132,4 +132,40 @@ public class GildedRoseTest
 
         items[0].Quality = expectedQuality;
     }
+    
+    // "Conjured" items degrade in Quality twice as fast as normal items
+    [Fact(Skip = "Pending to add this logic after refactoring")]
+    public void UpdateQuality_ConjuredDecreasesQualityBy2()
+    {
+        var items = new List<Item> { new() { Name = "Conjured", SellIn = 10, Quality = 10 } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Quality = 8;
+    }
+    
+    // "Conjured" items degrade in Quality twice as fast as normal items
+    [Fact(Skip = "Pending to add this logic after refactoring")]
+    public void UpdateQuality_ConjuredDecreasesSellInBy1()
+    {
+        var items = new List<Item> { new() { Name = "Conjured", SellIn = 10, Quality = 10 } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].SellIn = 9;
+    }
+    
+    // Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
+    [Fact(Skip = "Pending to add this logic after refactoring")]
+    public void UpdateQuality_SulfurasHasAFixedQualityOf80()
+    {
+        var items = new List<Item> { new() { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 10 } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Quality = 80;
+    }
 }
