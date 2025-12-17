@@ -28,9 +28,8 @@ public class GildedRose
 
     private static void UpdateAgedBrie(Item item)
     {
-        item.SellIn = item.SellIn - 1;
-        if (item.Quality < 50) item.Quality = item.Quality + 1;
-        if (item.SellIn < 0 && item.Quality < 50) item.Quality = item.Quality + 1;
+        var updater = new AgedBrieUpdater();
+        updater.UpdateQueality(item);
     }
 
     private static void UpdateBackstagePasses(Item item)
