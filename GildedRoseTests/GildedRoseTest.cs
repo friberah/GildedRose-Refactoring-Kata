@@ -68,4 +68,16 @@ public class GildedRoseTest
 
         items[0].Quality = 11;
     }
+    
+    // The Quality of an item is never more than 50
+    [Fact]
+    public void UpdateQuality_ItemWithQualityEqualTo50_NeverIncreasesTheQuality()
+    {
+        var items = new List<Item> { new() { Name = "foo", SellIn = 10, Quality = 50 } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Quality = 50;
+    }
 }
