@@ -8,7 +8,19 @@ public class GildedRoseTest
 {
     // At the end of each day our system lowers both values for every item
     [Fact]
-    public void UpdateQuality_LowersSellInAndQualityForEveryItem()
+    public void UpdateQuality_LowersSellInForEveryItem()
+    {
+        var items = new List<Item> { new Item { Name = "foo", SellIn = 10, Quality = 10 } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].SellIn = 9;
+    }
+    
+    // At the end of each day our system lowers both values for every item
+    [Fact]
+    public void UpdateQuality_LowersQualityForEveryItem()
     {
         var items = new List<Item> { new Item { Name = "foo", SellIn = 10, Quality = 10 } };
         var app = new GildedRose(items);
@@ -16,6 +28,5 @@ public class GildedRoseTest
         app.UpdateQuality();
 
         items[0].Quality = 9;
-        items[0].SellIn = 9;
     }
 }
