@@ -24,24 +24,24 @@ public class GildedRose
     private static void UpdateSulfuras(Item item)
     {
         var updater = new SulfurasUpdater();
-        updater.UpdateQuality(item);
+        updater.Update(item);
     }
 
     private static void UpdateAgedBrie(Item item)
     {
         var updater = new AgedBrieUpdater();
-        updater.UpdateQueality(item);
+        updater.Update(item);
     }
 
     private static void UpdateBackstagePasses(Item item)
     {
         var updater = new BackstagePassUpdater();
-        updater.UpdateAgedBrie(item);
+        updater.Update(item);
     }
     
     private static void  UpdateNormalItem(Item item)
     {
         var updater = new StandardItemUpdater();
-        updater.UpdateQueality(item);
+        updater.Update(item);
     }
 }

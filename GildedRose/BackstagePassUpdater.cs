@@ -1,8 +1,8 @@
 namespace GildedRoseKata;
 
-public class BackstagePassUpdater
+public class BackstagePassUpdater : IItemUpdater
 {
-    public void UpdateAgedBrie(Item item)
+    public void Update(Item item)
     {
         if (item.Quality < 50) item.Quality = item.Quality + 1;
         if (item.SellIn < 11 && item.Quality < 50) item.Quality = item.Quality + 1;

@@ -1,8 +1,8 @@
 namespace GildedRoseKata;
 
-public class StandardItemUpdater
+public class StandardItemUpdater : IItemUpdater
 {
-    public void UpdateQueality(Item item)
+    public void Update(Item item)
     {
         item.SellIn = item.SellIn - 1;
         if (item.Quality > 0) item.Quality = item.Quality - 1;
