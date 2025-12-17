@@ -29,4 +29,19 @@ public class GildedRoseTest
 
         items[0].Quality = 9;
     }
+    
+    //Once the sell by date has passed, Quality degrades twice as fast
+    
+    [Theory]
+    [InlineData(0)]
+    [InlineData(1)]
+    public void UpdateQuality_ReducedQualityByTwoWhenSellInIsLessOrEqualToZero(int sellIn)
+    {
+        var items = new List<Item> { new Item { Name = "foo", SellIn = sellIn, Quality = 10 } };
+        var app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Quality = 8;
+    }
 }
