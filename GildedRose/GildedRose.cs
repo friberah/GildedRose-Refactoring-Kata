@@ -20,10 +20,9 @@ public class GildedRose
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.SellIn < 11 && item.Quality < 50) item.Quality = item.Quality + 1;
 
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.SellIn < 6 && item.Quality < 50) item.Quality = item.Quality + 1;
+            if (item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.Quality < 50) item.Quality = item.Quality + 1;
 
             if (item.Name == "Aged Brie" && item.Quality < 50) item.Quality = item.Quality + 1;
-
-            if(item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.Quality < 50) item.Quality = item.Quality + 1;
 
             if (item.Name != "Sulfuras, Hand of Ragnaros") item.SellIn = item.SellIn - 1;
 
