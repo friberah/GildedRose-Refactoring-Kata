@@ -47,9 +47,9 @@ public class GildedRose
                 continue;
             }
 
-            if (item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros"
-                                 && item.Name != "Backstage passes to a TAFKAL80ETC concert"
-                                 && item.Name != "Aged Brie")
+            if (item.Name != "Sulfuras, Hand of Ragnaros"
+                && item.Name != "Backstage passes to a TAFKAL80ETC concert"
+                && item.Name != "Aged Brie" && item.Quality > 0)
             {
                 item.Quality = item.Quality - 1;
             }
